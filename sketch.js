@@ -550,7 +550,7 @@ class Ant {
     //if it is on food eat the food and make a child
     if (map[this.pos.x][this.pos.y].type == tileTypes) {
       map[this.pos.x][this.pos.y].type = 0;
-      spawnAnt(ants, this, Vector.clone(this.pos));
+      spawnAnt(ants, this, this.pos);
 
 
       //re-draw the food tile as empty
@@ -766,7 +766,7 @@ function draw() {
   for (let i = ants.length-1; i >= 0; i--) {
     if (!ants[i].alive) {
       ants[i].die();
-      ants.slice(i,i);
+      ants.splice(i,1);
     }
   }
 }
@@ -895,7 +895,7 @@ function spawnRandomAnt(antArray) {
 }
 function spawnFromRandom(antArray) {
   let id=Math.floor(random(0, options.length));
-  spawnAnt(antArry, antArray[id], Vector.clone(antArray[id].pos));
+  spawnAnt(antArry, antArray[id], antArray[id].pos);
 }
 function spawnAnt(antArray, parAnt, pos) {
   antArray.push(new Ant(pos, parAnt));
