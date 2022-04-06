@@ -703,13 +703,13 @@ let zoom = 1;
 
 
 function setup(params) {
-  createCanvas(800, 800);
+  createCanvas(windowWidth, windowHeight);
   //set color to use hue
   colorMode(HSB, 100);
 
 
   //setup map to size of screen
-  // tiles=new Tile[Math.floor(width/zoom)][Math.floor(height/zoom)];
+  // tiles=new Tile[Math.floor(windowWidth)][Math.floor(height)];
   tiles = new Array(Math.floor(width/zoom));
   for (let x = 0; x < tiles.length; x++) {
     tiles[x] = new Array(Math.floor(height/zoom));
@@ -801,7 +801,7 @@ function spawnFood(grid) {
       let d = random(0, width/zoom/2);
       let a = random(0, TWO_PI);
       x = Math.floor(cos(a) * d) + (Math.floor(width/zoom/2));
-      y = Math.floor(sin(a) * d) + (Math.floor(width/zoom/2));
+      y = Math.floor(sin(a) * d) + (Math.floor(height/zoom/2));
     }
 
 
