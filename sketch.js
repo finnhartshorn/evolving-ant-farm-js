@@ -16,7 +16,7 @@ const eightDirections = true;
 //if the food spawns in a disk
 const foodDisk = true;
 //if the map will have varied spawning rules for food (biomes)
-const multiBiome = true;
+const multiBiome = false;
 //how transparent the ants are (0 to 255)
 const opacity = 20;
 //redraw the an ant's tiles after it dies
@@ -703,13 +703,12 @@ let zoom = 1;
 
 
 function setup(params) {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth/zoom, windowHeight/zoom);
   //set color to use hue
   colorMode(HSB, 100);
 
 
   //setup map to size of screen
-  // tiles=new Tile[Math.floor(windowWidth)][Math.floor(height)];
   tiles = new Array(Math.floor(width/zoom));
   for (let x = 0; x < tiles.length; x++) {
     tiles[x] = new Array(Math.floor(height/zoom));
